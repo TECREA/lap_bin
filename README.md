@@ -1,2 +1,2 @@
-# lap_binary
+# lap_bin
 Binary files for CamKit

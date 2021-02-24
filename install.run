@@ -15,7 +15,7 @@ cp -a home/user/. /home/pi/
 #(4)
 cd home 
 cp alarm_check_reg_list.txt slave_reg_list.txt /home/
-cd ../src
+cd ../
 
 BIN="src/" # lap_bin/src
 PATH_STATIC="dist/Debug/GNU-Linux"

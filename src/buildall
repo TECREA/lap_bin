@@ -1,0 +1,27 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+GRN='\033[0;32m'
+CYN='\033[0;36m'
+NC='\033[0m' # No Color
+
+for dir in /home/pi/NetBeansProjects/*/
+do
+    dir=${dir%*/}
+    printf "\r\n${GRN}_________________________________________________________________________\r\nBuilding ${dir##}...${NC}\r\n"
+    cd ${dir##*/}
+    printf "${CYN}Cleanning...${NC}\r\n"
+    make clean
+    printf "${CYN}Compiling...${NC}\r\n"
+    make
+    if [ $? -eq 0 ] ; then
+      printf "${GRN}SUCCESS!${NC}\r\n"
+    else
+      printf "${RED}FAIL.${NC}\r\n"
+    fi
+    printf "${CYN}Command completed.${NC}\r\n"
+    cd ..
+done
+printf "${GRN}All PROYECTS BUILDED.\r\n"
+
+

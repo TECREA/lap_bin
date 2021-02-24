@@ -1,0 +1,7 @@
+#!/bin/bash
+echo 'Killing lap_monitord and childs..'
+sudo kill -$(pidof lap_monitord)
+sleep 1
+echo 'Reloading lap_monitord...'
+/home/pi/lapst01.run &
+#sudo -HE env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games LD_LIBRARY_PATH=/usr/local/lib lap_monitord /bin/lap_daq -v -s 0.000001 -k 695.000000 -o 1.305000 -a 0.950000 -x 0 -y 0 -z 0 /bin/lap_logger -t 0.500000 /bin/lap_remotereport -v -s 54.85.56.50 -p 6666 -t 30.000000 -c 1.000000 -w 0.5 -a LAP:ACK /bin/lap_modbus_slave --rtuport /dev/serial0 -b 9600 -i 0 /bin/lap_alarm_check -f /home/pi/config/alarms.values /bin/lap_gpsd /bin/lap_modbus_tcp  > /dev/null 2>&1

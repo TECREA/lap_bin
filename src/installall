@@ -1,0 +1,27 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+GRN='\033[0;32m'
+CYN='\033[0;36m'
+NC='\033[0m' # No Color
+
+printf "${CYN}Installing symbolic links...${NC}\r\n"
+
+for dir in /home/pi/NetBeansProjects/*/
+do
+    dir=${dir%*/}   
+    fixed="/dist/Debug/GNU-Linux"
+    strpath="${dir##}${fixed}"
+    exename="$(ls  ${strpath##} 2>/dev/null)"
+     linkname="/bin/lap_$exename"
+    printf "${GRN}${exename##}${NC}\r\n"
+    if [ $? -eq 0 ] ; then
+      linkname="/bin/lap_$exename"
+      fullpath="${strpath##}/${exename}"
+      rm $linkname
+      ln -sf $fullpath  $linkname
+    else
+      printf "Ignored path\r\n"
+    fi
+   printf " OK\r\n"
+done

@@ -1,0 +1,4 @@
+5 * * * * /home/pi/modem_reload.sh
+0 1 * * * /home/pi/flush_logs.run
+0 * * * * /home/pi/rtcsync.sh
+* * * * * /home/pi/ppp0default.sh

@@ -1,20 +1,19 @@
 #!/bin/bash
 
-
 #(1)
 echo 'Killing lap_monitord and childs..'
 sudo kill -$(pidof lap_monitord)
 sleep 1
 
 #(2)
-cp -p etc/rc.local /etc/
+sudo cp -p etc/rc.local /etc/
 
 #(3)
-cp -a home/user/. /home/pi/
+sudo cp -a home/user/. /home/pi/
 
 #(4)
-cd home 
-cp alarm_check_reg_list.txt slave_reg_list.txt /home/
+cd home
+sudo cp alarm_check_reg_list.txt slave_reg_list.txt /home/
 cd ../
 
 BIN="src/" # lap_bin/src
@@ -28,15 +27,16 @@ for file in $FPATH;
 do
   filename="${file##*/}"
   basn=$(basename $file)
+  echo "basename $basn"
   #mkdir -p ../$basn/dist
   #cp $file ../$basn/dist/ # /home/pi/NetBeansProjects/alarm_check/dist/Debug/GNU-Linux
   #cp $file /home/pi/NetBeansProjects/$basn/dist/Debug/GNU-Linux
-  cp -p $file ../../src/$basn/dist/Debug/GNU-Linux/
+  sudo cp -p $file ../../NetBeansProjects/$basn/dist/Debug/GNU-Linux/
   echo "hello $file $basn"
 done
 
 #(6)
-sudo reboot 
+sudo reboot
 
 exit;
 
@@ -47,3 +47,4 @@ exit;
 #(5) copy source
 #(6) reboot device
 #(7)
+

@@ -2,7 +2,7 @@
 
 #(1)
 echo 'Killing lap_monitord and childs..'
-sudo kill $(pidof lap_monitord)
+sudo kill -$(pidof lap_monitord)
 sleep 1
 
 #(2)
@@ -10,6 +10,9 @@ sudo cp -p etc/rc.local /etc/
 
 #(3)
 sudo cp -a home/user/. /home/pi/
+sudo chmod u+x /home/pi/flush_logs.run /home/pi/lapst01.restart /home/pi/libmodbusexport.sh
+sudo chmod u+x /home/pi/ppp0default.sh /home/pi/test2.sh /home/pi/lapst01.run /home/pi/ppp-creator.sh
+sudo chmod u+x /home/pi/rtcsync.sh /home/pi/modem_reload.sh /home/pi/network_priority.sh /home/pi/test1.sh
 
 #(4)
 cd home
@@ -28,8 +31,10 @@ do
   filename="${file##*/}"
   basn=$(basename $(dirname $(dirname $(dirname $(dirname $file))) ))
   #echo "basename $basn"
+  sudo chmod u+x $file
   sudo cp -p $file ../../NetBeansProjects/$basn/dist/Debug/GNU-Linux/
   #echo "hello $file $basn"
+
 done
 echo "Successfull copy..."
 #(6)

@@ -26,13 +26,10 @@ FPATH="./*/$PATH_STATIC/*"  # "./*/dist/Debug/GNU-Linux/*"
 for file in $FPATH;
 do
   filename="${file##*/}"
-  basn=$(basename $file)
-  echo "basename $basn"
-  #mkdir -p ../$basn/dist
-  #cp $file ../$basn/dist/ # /home/pi/NetBeansProjects/alarm_check/dist/Debug/GNU-Linux
-  #cp $file /home/pi/NetBeansProjects/$basn/dist/Debug/GNU-Linux
+  basn=$(basename $(dirname $(dirname $(dirname $(dirname $file))) ))
+  #echo "basename $basn"
   sudo cp -p $file ../../NetBeansProjects/$basn/dist/Debug/GNU-Linux/
-  echo "hello $file $basn"
+  #echo "hello $file $basn"
 done
 
 #(6)

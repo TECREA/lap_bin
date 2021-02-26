@@ -2,7 +2,7 @@
 
 #(1)
 echo 'Killing lap_monitord and childs..'
-sudo kill -$(pidof lap_monitord)
+sudo kill $(pidof lap_monitord)
 sleep 1
 
 #(2)
@@ -31,7 +31,7 @@ do
   sudo cp -p $file ../../NetBeansProjects/$basn/dist/Debug/GNU-Linux/
   #echo "hello $file $basn"
 done
-
+echo "Successfull copy..."
 #(6)
 sudo reboot
 

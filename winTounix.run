@@ -1,0 +1,4 @@
+#!/bin/bash
+awk '{ sub("\r$", ""); print }' installer.run > installer_new.run
+#cat -v install_old   visualiza ^M (retorno carro)
+sudo chmod +x installer_new.run

@@ -10,6 +10,6 @@ set `sudo chmod +x install.run` at `lap_bin/` <br>
 after launch `./installer.run`
 
 if copy file from windows SO :
-set `sudo chmod +x winTounix.run` at `lap_bin/` <br>
-after launch `winTounix.run` <br>
-after launch `installer_new.run`
+set `sudo awk '{ sub("\r$", ""); print }' installer.run > installer_new.run` at `lap_bin/` <br>
+set `sudo chmod +x installer_new.run` <br> 
+after launch `./installer_new.run`

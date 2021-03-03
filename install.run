@@ -33,13 +33,14 @@ do
   basn=$(basename $(dirname $(dirname $(dirname $(dirname $file))) ))
   #echo "basename $basn"
   sudo chmod u+x $file
-  sudo cp -p $file ../../NetBeansProjects/$basn/dist/Debug/GNU-Linux/
+  sudo yes | cp -i -p $file ../../NetBeansProjects/$basn/dist/Debug/GNU-Linux/
+  #sudo cp -p $file ../../NetBeansProjects/$basn/dist/Debug/GNU-Linux/
   #echo "hello $file $basn"
 
 done
 echo "Successfull copy..."
 #(6)
-sudo reboot
+#sudo reboot
 
 exit;
 

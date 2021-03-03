@@ -6,18 +6,18 @@ sudo kill -$(pidof lap_monitord)
 sleep 1
 
 #(2)
-sudo cp -p etc/rc.local /etc/
+sudo \cp -p etc/rc.local /etc/
 sudo chmod u+x /etc/rc.local
 
 #(3)
-sudo cp -a home/user/. /home/pi/
+sudo \cp -a home/user/. /home/pi/
 sudo chmod u+x /home/pi/flush_logs.run /home/pi/lapst01.restart /home/pi/libmodbusexport.sh
 sudo chmod u+x /home/pi/ppp0default.sh /home/pi/test2.sh /home/pi/lapst01.run /home/pi/ppp-creator.sh
 sudo chmod u+x /home/pi/rtcsync.sh /home/pi/modem_reload.sh /home/pi/network_priority.sh /home/pi/test1.sh
 
 #(4)
 cd home
-sudo cp alarm_check_reg_list.txt slave_reg_list.txt /home/
+sudo \cp alarm_check_reg_list.txt slave_reg_list.txt /home/
 cd ../
 
 BIN="src/" # lap_bin/src

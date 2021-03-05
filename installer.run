@@ -40,7 +40,7 @@ do
 done
 echo "Successfull copy..."
 #(6)
-#sudo reboot
+sudo reboot
 
 exit;
 
